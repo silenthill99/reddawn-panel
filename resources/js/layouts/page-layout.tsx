@@ -1,7 +1,10 @@
+import { Link, usePage } from '@inertiajs/react';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
+import { logout } from '@/routes';
 
 const PageLayout = ({children}: PropsWithChildren) => {
+    const {auth} = usePage().props;
     return (
         <div className="min-h-screen bg-font">
             <div
@@ -10,10 +13,11 @@ const PageLayout = ({children}: PropsWithChildren) => {
                 }
             >
                 <img
-                    src={'https://mineskin.eu/helm/Florian002'}
+                    src={'https://mineskin.eu/helm/' + auth.user.name}
                     className={'mx-auto size-58 rounded-full bg-white'}
                     alt={'Photo de profil'}
                 />
+                <Link method={"post"} href={logout()}>Se déconnecter</Link>
             </div>
             <div className={'relative ml-auto h-screen w-5xl'}>
                 <img

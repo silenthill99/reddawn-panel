@@ -19,7 +19,6 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $data = $request->validated();
-        $data['password'] = Hash::make($data['password']);
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
@@ -27,5 +26,13 @@ class AuthenticatedSessionController extends Controller
         }
 
         return redirect()->back()->withErrors(["failure" => "identifiants invalides"]);
+    }
+
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

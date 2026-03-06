@@ -1,3 +1,5 @@
+import type { Sanction } from '@/types/index';
+
 export type User = {
     id: number;
     name: string;
@@ -7,6 +9,7 @@ export type User = {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
+    emittedSanctions: Sanction[];
 };
 
 export type Auth = {

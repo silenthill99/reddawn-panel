@@ -1,29 +1,28 @@
-import { Link, usePage } from '@inertiajs/react';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
-import { logout } from '@/routes';
+import MenuDesktop from '@/components/menu-desktop';
+import MenuMobile from '@/components/menu-mobile';
+import { home } from '@/routes';
+import type { MenuItem } from '@/types';
 
 const PageLayout = ({children}: PropsWithChildren) => {
-    const {auth} = usePage().props;
+
+    const menu: MenuItem[] = [
+        {
+            label: "Page d'accueil",
+            href: home().url,
+        }
+    ];
+
     return (
         <div className="min-h-screen bg-font">
-            <div
-                className={
-                    'fixed top-0 left-20 z-50 flex h-screen w-89 flex-col bg-black/50 p-5'
-                }
-            >
-                <img
-                    src={'https://mineskin.eu/helm/' + auth.user.name}
-                    className={'mx-auto size-58 rounded-full bg-white'}
-                    alt={'Photo de profil'}
-                />
-                <Link method={"post"} href={logout()}>Se déconnecter</Link>
-            </div>
-            <div className={'relative ml-auto h-screen w-5xl'}>
+            <MenuDesktop menuItem={menu} />
+            <MenuMobile menuItem={menu} />
+            <div className={'relative ml-auto min-h-screen lg:w-5xl lg:h-screen'}>
                 <img
                     src="/images/logo-reddawn.png"
                     alt=""
-                    className={'h-full blur-sm'}
+                    className={'w-100.5 blur-sm lg:h-full lg:w-auto'}
                 />
                 {children}
             </div>

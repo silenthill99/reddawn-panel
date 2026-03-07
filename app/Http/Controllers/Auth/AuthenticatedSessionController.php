@@ -20,7 +20,9 @@ class AuthenticatedSessionController extends Controller
     {
         $data = $request->validated();
 
-        if (Auth::attempt($data)) {
+        $remember = $request->boolean('remember');
+
+        if (Auth::attempt($data, $remember)) {
             $request->session()->regenerate();
             return redirect()->intended(route('home'));
         }

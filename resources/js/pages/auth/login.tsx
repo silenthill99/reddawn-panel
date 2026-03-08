@@ -10,6 +10,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from "@/components/ui/label";
 import { Toaster } from '@/components/ui/sonner';
+import password from '@/routes/password';
 
 const Login = () => {
     const {flash} = usePage().props;
@@ -66,7 +67,7 @@ const Login = () => {
                                             Se souvenir de moi
                                         </Label>
                                     </div>
-                                    <Link className={"text-cyan-600"} href={""}>Mot de passe oublié</Link>
+                                    <Link className={"text-cyan-600"} href={password.request()}>Mot de passe oublié</Link>
                                 </div>
                                 <Button disabled={processing} className="mt-20">
                                     Se connecter{' '}

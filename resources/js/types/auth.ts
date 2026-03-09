@@ -1,4 +1,4 @@
-import type { Sanction } from '@/types/index';
+import type { Role, Sanction } from '@/types/index';
 
 export type User = {
     id: number;
@@ -10,6 +10,7 @@ export type User = {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
     emittedSanctions: Sanction[];
+    role: Role
 };
 
 export type Auth = {

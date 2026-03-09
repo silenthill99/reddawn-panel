@@ -80,6 +80,9 @@ export default function Welcome() {
                         </CardContent>
                     </Card>
                 ))}
+                <div className={"py-5"}>
+                    <PaginatedCollection paginatedLinks={sanctions}/>
+                </div>
             </div>
         </PageLayout>
     );

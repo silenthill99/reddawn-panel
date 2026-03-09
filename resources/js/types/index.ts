@@ -40,3 +40,12 @@ export interface PaginatedProps<T> {
         total: number;
     }
 }
+
+export interface Role {
+    id: number;
+    role: string;
+    label: string;
+    created_at: string;
+    updated_at: string;
+    users: User[];
+}

@@ -57,6 +57,7 @@ const Login = () => {
                                     />
                                     <InputError message={errors.password} />
                                 </div>
+
                                 <div className={"block lg:flex justify-between"}>
                                     <div className={'flex items-center gap-2'}>
                                         <Checkbox

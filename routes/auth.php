@@ -10,9 +10,6 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
 
-    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
-
     Route::get('/create-password/{token}', [CreatePasswordController::class, 'create'])->name('password.create');
     Route::post('/create-password', [CreatePasswordController::class, 'store'])->name('password.store');
 
@@ -21,4 +18,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])->name('password.reset');
     Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('password.update');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 });

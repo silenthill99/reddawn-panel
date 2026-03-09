@@ -1,4 +1,4 @@
-import { Form, Head } from '@inertiajs/react';
+import { Form, Head, usePage } from '@inertiajs/react';
 import { LoaderCircleIcon } from 'lucide-react';
 import React from 'react';
 import RegisteredUserController from '@/actions/App/Http/Controllers/Auth/RegisteredUserController';
@@ -7,8 +7,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+    Select,
+    SelectContent, SelectGroup,
+    SelectItem,
+    SelectTrigger, SelectValue,
+} from '@/components/ui/select';
+import type { Role } from '@/types';
 
 const Register = () => {
+    const {roles} = usePage<{roles: Role[]}>().props
     return (
         <div
             className={'flex min-h-screen items-center justify-center bg-font'}
@@ -57,7 +65,35 @@ const Register = () => {
                                     />
                                     <InputError message={errors.name} />
                                 </div>
-                                <Button disabled={processing}>Créer un compte {processing && <LoaderCircleIcon className="animate-spin"/>}</Button>
+                                <div>
+                                    <Label htmlFor="role">
+                                        Choisissez le rôle
+                                    </Label>
+                                    <Select name={"role"}>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder={"Choisissez un rôle"}/>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                {roles.map((role) => (
+                                                    <SelectItem
+                                                        key={role.id}
+                                                        value={role.role}
+                                                    >
+                                                        {role.role}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
+                                    <InputError message={errors.role} />
+                                </div>
+                                <Button disabled={processing}>
+                                    Créer un compte{' '}
+                                    {processing && (
+                                        <LoaderCircleIcon className="animate-spin" />
+                                    )}
+                                </Button>
                             </div>
                         )}
                     </Form>

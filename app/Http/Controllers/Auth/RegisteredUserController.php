@@ -29,7 +29,7 @@ class RegisteredUserController extends Controller
         $data = $request->validated();
         $data['password'] = Str::random(60);
 
-        $role = Role::where('role', $data['role'])->firstOrFail();
+        $role = Role::where('level', $data['role'])->firstOrFail();
 
         $user = $role->users()->create($data);
 

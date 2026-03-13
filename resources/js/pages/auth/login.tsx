@@ -2,7 +2,7 @@ import { Form, Head, Link, usePage } from '@inertiajs/react';
 import { LoaderCircleIcon } from 'lucide-react';
 import React, { useEffect } from 'react';
 import { toast } from 'sonner';
-import AuthenticatedSessionController from '@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController';
+import AuthenticatedSessionController from "@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController";
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";

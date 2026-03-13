@@ -43,7 +43,7 @@ export interface PaginatedProps<T> {
 
 export interface Role {
     id: number;
-    role: string;
+    level: string;
     label: string;
     created_at: string;
     updated_at: string;

@@ -1,4 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
+import { useEffect } from 'react';
 import PaginatedCollection from '@/components/PaginatedCollection';
 import {
     Card,
@@ -18,7 +19,12 @@ import PageLayout from '@/layouts/page-layout';
 import type { PaginatedProps, Sanction } from '@/types';
 
 export default function Welcome() {
+    const page = usePage();
     const {sanctions} = usePage<{sanctions: PaginatedProps<Sanction>}>().props
+    useEffect(() => {
+        console.log(page)
+    }, []);
+
     return (
         <PageLayout>
             <Head title="Welcome">

@@ -9,8 +9,8 @@ export type User = {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
-    emittedSanctions: Sanction[];
-    role: Role
+    emitted_sanctions: Sanction[];
+    role: Role,
 };
 
 export type Auth = {

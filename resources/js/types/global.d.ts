@@ -9,7 +9,8 @@ declare module '@inertiajs/core' {
             [key: string]: unknown;
             flash: {
                 status?: string;
-            }
+            },
+            is_admin: boolean;
         };
     }
 }

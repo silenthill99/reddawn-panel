@@ -78,9 +78,9 @@ const Register = () => {
                                                 {roles.map((role) => (
                                                     <SelectItem
                                                         key={role.id}
-                                                        value={role.role}
+                                                        value={role.level}
                                                     >
-                                                        {role.role}
+                                                        {role.label}
                                                     </SelectItem>
                                                 ))}
                                             </SelectGroup>

@@ -1,15 +1,15 @@
 import { Link, usePage } from '@inertiajs/react';
-import { LayoutDashboard } from 'lucide-react';
+import { LayoutDashboard, SquareArrowRightExitIcon } from 'lucide-react';
 import React from 'react';
 import {
-    Sidebar, SidebarContent,
+    Sidebar, SidebarContent, SidebarFooter,
     SidebarGroup,
     SidebarGroupContent,
     SidebarHeader,
     SidebarMenu, SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, home } from '@/routes';
+import { dashboard, home, logout } from '@/routes';
 
 const AppSidebar = () => {
 
@@ -31,7 +31,7 @@ const AppSidebar = () => {
     }
 
     return (
-        <Sidebar>
+        <Sidebar variant={"inset"}>
             <SidebarHeader>
                 <SidebarGroup>
                     <SidebarGroupContent>
@@ -66,6 +66,22 @@ const AppSidebar = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
+            <SidebarFooter>
+                <SidebarGroup>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href={logout()}>
+                                        <SquareArrowRightExitIcon/>
+                                        Se déconnecter
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+            </SidebarFooter>
         </Sidebar>
     );
 };

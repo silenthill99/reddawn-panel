@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import React from 'react';
 import MenuDesktop from '@/components/menu-desktop';
 import MenuMobile from '@/components/menu-mobile';
-import { home } from '@/routes';
+import { dashboard, home } from '@/routes';
 import type { MenuItem } from '@/types';
 
 const PageLayout = ({children}: PropsWithChildren) => {
@@ -11,6 +11,10 @@ const PageLayout = ({children}: PropsWithChildren) => {
         {
             label: "Page d'accueil",
             href: home().url,
+        },
+        {
+            label: "Tableau de bord",
+            href: dashboard().url,
         }
     ];
 

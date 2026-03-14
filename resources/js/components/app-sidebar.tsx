@@ -9,7 +9,7 @@ import {
     SidebarMenu, SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, home, logout } from '@/routes';
+import { dashboard, home, logout, register } from '@/routes';
 
 const AppSidebar = () => {
 
@@ -25,7 +25,8 @@ const AppSidebar = () => {
 
     const adminMenuItems = [
         {
-            label: "Ajouter un staff"
+            label: "Ajouter un staff",
+            href: register()
         }
     ]
 
@@ -82,7 +83,7 @@ const AppSidebar = () => {
                                 {adminMenuItems.map((item, index) => (
                                     <SidebarMenuItem key={index}>
                                         <SidebarMenuButton asChild>
-                                            <Link href={''}>
+                                            <Link href={item.href}>
                                                 {item.label}
                                             </Link>
                                         </SidebarMenuButton>

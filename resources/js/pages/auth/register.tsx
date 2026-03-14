@@ -13,16 +13,15 @@ import {
     SelectItem,
     SelectTrigger, SelectValue,
 } from '@/components/ui/select';
+import SidebarLayout from '@/layouts/sidebar-layout';
 import type { Role } from '@/types';
 
 const Register = () => {
     const {roles} = usePage<{roles: Role[]}>().props
     return (
-        <div
-            className={'flex min-h-screen items-center justify-center bg-font'}
-        >
+        <SidebarLayout title={'Ajouter un staff'}>
             <Head title={'Créer un compte'} />
-            <Card className="min-w-150">
+            <Card className="min-w-150 border-0 shadow-none">
                 <CardHeader>
                     <CardTitle>Créer un compte</CardTitle>
                 </CardHeader>
@@ -99,7 +98,7 @@ const Register = () => {
                     </Form>
                 </CardContent>
             </Card>
-        </div>
+        </SidebarLayout>
     );
 };
 

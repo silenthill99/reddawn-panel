@@ -1,20 +1,28 @@
+import { usePage } from '@inertiajs/react';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 import MenuDesktop from '@/components/menu-desktop';
 import MenuMobile from '@/components/menu-mobile';
-import { dashboard, home } from '@/routes';
+import { dashboard, erreursStaff, home } from '@/routes';
 import type { MenuItem } from '@/types';
 
 const PageLayout = ({children}: PropsWithChildren) => {
-
+    const {is_admin} = usePage().props;
     const menu: MenuItem[] = [
         {
             label: "Page d'accueil",
             href: home().url,
+            isVisible: true
         },
         {
             label: "Tableau de bord",
             href: dashboard().url,
+            isVisible: true
+        },
+        {
+            label: "Erreurs staff",
+            href: erreursStaff().url,
+            isVisible: is_admin
         }
     ];
 

@@ -6,6 +6,7 @@ export interface MenuItem {
     label: string;
     icon?: string;
     href: string;
+    isVisible: boolean;
 }
 
 export interface Sanction {

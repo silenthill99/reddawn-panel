@@ -13,8 +13,8 @@ const MenuDesktop = ({ menuItem }: Props) => {
     const { auth } = usePage().props;
 
     const isActive = (link: string) => {
-        if (url === '/') {
-            return link === '/';
+        if (link === '/') {
+            return url === '/';
         }
         return url.startsWith(link);
     };
@@ -34,17 +34,20 @@ const MenuDesktop = ({ menuItem }: Props) => {
                 <nav className={'w-full'}>
                     <ul className={'w-full'}>
                         {menuItem.map((item, id) => (
-                            <li key={id} className={'w-full'}>
-                                <Link
-                                    href={item.href}
-                                    className={cn(
-                                        isActive(item.href) && 'bg-black/25',
-                                        'block p-5 text-center hover:bg-black/25'
-                                    )}
-                                >
-                                    {item.label}
-                                </Link>
-                            </li>
+                            item.isVisible && (
+                                <li key={id} className={'w-full'}>
+                                    <Link
+                                        href={item.href}
+                                        className={cn(
+                                            isActive(item.href) &&
+                                            'bg-black/25',
+                                            'block p-5 text-center hover:bg-black/25',
+                                        )}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            )
                         ))}
                     </ul>
                 </nav>

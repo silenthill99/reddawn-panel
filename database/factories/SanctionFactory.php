@@ -18,7 +18,7 @@ class SanctionFactory extends Factory
     public function definition(): array
     {
         return [
-            "pseudo" => $this->faker->userName(),
+            "pseudo" => "Florian002",
             "emitted_by" => 1,
             "sanction_type" => $this->faker->randomElement(['Bannissement', 'Mute', 'Kick', 'Avertissement']),
             "reason" => $this->faker->sentence(),

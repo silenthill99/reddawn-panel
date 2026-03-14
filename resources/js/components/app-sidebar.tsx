@@ -4,7 +4,7 @@ import React from 'react';
 import {
     Sidebar, SidebarContent, SidebarFooter,
     SidebarGroup,
-    SidebarGroupContent,
+    SidebarGroupContent, SidebarGroupLabel,
     SidebarHeader,
     SidebarMenu, SidebarMenuButton,
     SidebarMenuItem,
@@ -13,6 +13,8 @@ import { dashboard, home, logout } from '@/routes';
 
 const AppSidebar = () => {
 
+    const {is_admin} = usePage().props;
+
     const navItems = [
         {
             label: 'Tableau de bord',
@@ -20,6 +22,12 @@ const AppSidebar = () => {
             icon: LayoutDashboard
         },
     ];
+
+    const adminMenuItems = [
+        {
+            label: "Ajouter un staff"
+        }
+    ]
 
     const {url} = usePage();
 
@@ -44,6 +52,7 @@ const AppSidebar = () => {
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+                {}
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
@@ -65,6 +74,24 @@ const AppSidebar = () => {
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+                {is_admin && (
+                    <SidebarGroup>
+                        <SidebarGroupLabel>Partie administration</SidebarGroupLabel>
+                        <SidebarGroupContent>
+                            <SidebarMenu>
+                                {adminMenuItems.map((item, index) => (
+                                    <SidebarMenuItem key={index}>
+                                        <SidebarMenuButton asChild>
+                                            <Link href={''}>
+                                                {item.label}
+                                            </Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                ))}
+                            </SidebarMenu>
+                        </SidebarGroupContent>
+                    </SidebarGroup>
+                )}
             </SidebarContent>
             <SidebarFooter>
                 <SidebarGroup>

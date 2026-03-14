@@ -82,7 +82,7 @@ const AppSidebar = () => {
                             <SidebarMenu>
                                 {adminMenuItems.map((item, index) => (
                                     <SidebarMenuItem key={index}>
-                                        <SidebarMenuButton asChild>
+                                        <SidebarMenuButton asChild isActive={isActive(item.href.url)}>
                                             <Link href={item.href}>
                                                 {item.label}
                                             </Link>

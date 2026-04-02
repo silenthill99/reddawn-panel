@@ -6,6 +6,7 @@ use App\Http\Resources\UserResource;
 use App\Models\Sanction;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,14 @@ Route::middleware("auth")->group(function () {
             "sanctions" => SanctionResource::collection($sanctions)
         ]);
     })->name("erreurs-staff");
+
+    Route::post("/sanctions/create", function (Request $request) {
+        Gate::authorize("isAdmin");
+        $data = $request->validate([
+            "pseudo" => "required"
+        ]);
+        Sanction::create($data);
+    });
 });
 
 require __DIR__.'/auth.php';

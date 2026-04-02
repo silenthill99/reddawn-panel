@@ -30,6 +30,10 @@ const SanctionsStaff = () => {
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Pseudo</TableHead>
+                                <TableHead>Emis par</TableHead>
+                                <TableHead>Type de sanction</TableHead>
+                                <TableHead>Raison</TableHead>
+                                <TableHead>Durée</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>

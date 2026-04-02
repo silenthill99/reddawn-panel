@@ -10,7 +10,7 @@ type Props = {
 
 const PaginatedCollection = ({paginatedLinks}: Props) => {
     return (
-        <div className={'flex w-full flex-wrap items-center justify-between'}>
+        <div className={'flex w-full flex-wrap items-center justify-between gap-5'}>
             <p>
                 Affichage des résultats{' '}
                 <strong>{paginatedLinks.meta.from}</strong> à {" "}

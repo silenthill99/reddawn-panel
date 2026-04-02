@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSanctionRequest;
 use App\Models\Sanction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SanctionController extends Controller
 {
@@ -20,15 +22,20 @@ class SanctionController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSanctionRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $user = Auth::user();
+
+        $sanctions = $user->emittedSanctions()->create($data);
+        return response()->json($sanctions);
     }
 
     /**

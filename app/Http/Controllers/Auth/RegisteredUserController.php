@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\RoleResource;
 use App\Mail\AccountCreated;
 use App\Models\Role;
-use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
     {
         $roles = Role::all();
         return Inertia::render('auth/register', [
-            'roles' => $roles,
+            'roles' => RoleResource::collection($roles),
         ]);
     }
 

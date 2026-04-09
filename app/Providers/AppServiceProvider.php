@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Enum\RoleEnum;
+use App\Models\Role;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -30,8 +31,13 @@ class AppServiceProvider extends ServiceProvider
         $this->configureDefaults();
         JsonResource::withoutWrapping();
         Gate::define('isAdmin', function ($user) {
-            return $user->role->level == RoleEnum::Admin->value;
+            return $user->role()->is(Role::where('level', RoleEnum::Admin->level())->first());
         });
+
+        Gate::define('isModerator', function ($user) {
+            return $user->role->level >= RoleEnum::Modo->level();
+        });
+
         Model::preventLazyLoading();
     }
 

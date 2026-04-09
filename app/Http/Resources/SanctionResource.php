@@ -15,12 +15,12 @@ class SanctionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id" => $this->id,
-            "pseudo" => $this->pseudo,
-            "sanction_type" => $this->sanction_type,
-            "emittedBy" => new UserResource($this->whenLoaded("emittedBy")),
-            "reason" => $this->reason,
-            "duration" => $this->duration
+            'id' => $this->id,
+            'pseudo' => $this->pseudo,
+            'sanction_type' => $this->sanction_type,
+            'emittedBy' => new UserResource($this->whenLoaded('emittedBy')),
+            'reason' => $this->reason,
+            'duration' => $this->duration,
         ];
     }
 }

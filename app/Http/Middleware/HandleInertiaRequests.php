@@ -42,10 +42,11 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            "flash" => [
-                "status" => $request->session()->get('status'),
+            'flash' => [
+                'status' => $request->session()->get('status'),
             ],
             'is_admin' => Auth::user()?->can('isAdmin'),
+            'is_moderator' => Auth::user()?->can('isModerator'),
         ];
     }
 }

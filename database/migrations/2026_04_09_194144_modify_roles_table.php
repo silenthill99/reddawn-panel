@@ -13,7 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('roles', function (Blueprint $table) {
-            $table->enum('level', array_column(RoleEnum::cases(), 'value'))->change();
+            $table->integer('level')->change();
+            $table->enum('label', RoleEnum::cases())->change();
         });
     }
 
@@ -23,7 +24,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('roles', function (Blueprint $table) {
-            $table->enum('level', array_column(RoleEnum::cases(), 'value'))->change();
+            $table->string('label')->change();
+            $table->enum('level', array_map(fn (RoleEnum $role) => $role->level(), RoleEnum::cases()))->change();
         });
     }
 };

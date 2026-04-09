@@ -28,12 +28,13 @@ class SendTokenUser extends Command
     {
         $user = User::where('email', $this->argument('email'))->first();
 
-        if (!$user) {
-            $this->error("Utilisateur introuvable");
+        if (! $user) {
+            $this->error('Utilisateur introuvable');
+
             return self::FAILURE;
         }
 
-        $token = $user->createToken("minecraft-plugin");
+        $token = $user->createToken('minecraft-plugin');
 
         $this->info("Token généré pour $user->name : ");
         $this->newLine();

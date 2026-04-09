@@ -18,11 +18,11 @@ class SanctionFactory extends Factory
     public function definition(): array
     {
         return [
-            "pseudo" => "Florian002",
-            "emitted_by" => 1,
-            "sanction_type" => $this->faker->randomElement(['Bannissement', 'Mute', 'Kick', 'Avertissement']),
-            "reason" => $this->faker->sentence(),
-            "duration" => $this->faker->randomElement(['1h', '6h', '12h', '1d', '3d', '7d', '14d', '30d', 'permanent']),
+            'pseudo' => 'Florian002',
+            'emitted_by' => 1,
+            'sanction_type' => $this->faker->randomElement(['Bannissement', 'Mute', 'Kick', 'Avertissement']),
+            'reason' => $this->faker->sentence(),
+            'duration' => $this->faker->randomElement(['1h', '6h', '12h', '1d', '3d', '7d', '14d', '30d', 'permanent']),
         ];
     }
 }

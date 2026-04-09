@@ -9,11 +9,13 @@ use Inertia\Inertia;
 
 class PasswordResetLinkController extends Controller
 {
-    public function create() {
+    public function create()
+    {
         return Inertia::render('auth/forgot-password');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate(['email' => 'required|email']);
 
         $status = Password::sendResetLink(

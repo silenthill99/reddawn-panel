@@ -18,7 +18,7 @@ class RoleResource extends JsonResource
             'id' => $this->id,
             'level' => $this->level,
             'label' => $this->label,
-            'users' => UserResource::collection($this->whenLoaded("users")),
+            'users' => UserResource::collection($this->whenLoaded('users')),
         ];
     }
 }

@@ -29,7 +29,7 @@ class SanctionPolicy
      */
     public function create(User $user): bool
     {
-        return $user->role()->where('label', ">=", RoleEnum::Modo->value)->exists();
+        return $user->role()->where('label', '>=', RoleEnum::Modo->value)->exists();
     }
 
     /**

@@ -13,10 +13,11 @@ use Inertia\Inertia;
 
 class NewPasswordController extends Controller
 {
-    public function create(string $token) {
-        return Inertia::render("auth/reset-password", [
-            "token" => $token,
-            "email" => request()->email
+    public function create(string $token)
+    {
+        return Inertia::render('auth/reset-password', [
+            'token' => $token,
+            'email' => request()->email,
         ]);
     }
 

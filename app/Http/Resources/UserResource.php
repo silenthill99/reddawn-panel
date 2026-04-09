@@ -15,10 +15,10 @@ class UserResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id" => $this->resource->id,
-            "name" => $this->resource->name,
-            "emittedSanctions" => SanctionResource::collection($this->whenLoaded("emittedSanctions")),
-            "role" => new RoleResource($this->whenLoaded("role")),
+            'id' => $this->resource->id,
+            'name' => $this->resource->name,
+            'emittedSanctions' => SanctionResource::collection($this->whenLoaded('emittedSanctions')),
+            'role' => new RoleResource($this->whenLoaded('role')),
         ];
     }
 }

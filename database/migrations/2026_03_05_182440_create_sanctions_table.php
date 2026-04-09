@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('pseudo');
             $table->foreignId('emitted_by')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string("sanction_type");
-            $table->text("reason");
-            $table->string("duration");
+            $table->string('sanction_type');
+            $table->text('reason');
+            $table->string('duration');
             $table->timestamps();
         });
     }

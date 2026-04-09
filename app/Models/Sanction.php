@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Sanction extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'pseudo',
-        "sanction_type",
-        "reason",
-        "duration",
+        'sanction_type',
+        'reason',
+        'duration',
     ];
 
     public function emittedBy(): BelongsTo

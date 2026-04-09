@@ -19,6 +19,7 @@ class RegisteredUserController extends Controller
     public function create(): Response
     {
         $roles = Role::all();
+
         return Inertia::render('auth/register', [
             'roles' => RoleResource::collection($roles),
         ]);
@@ -37,7 +38,6 @@ class RegisteredUserController extends Controller
         $url = route('password.create', ['token' => $token, 'email' => $user->email]);
 
         Mail::to($user->email)->send(new AccountCreated($user, $url));
-
 
         return redirect()->route('login');
     }

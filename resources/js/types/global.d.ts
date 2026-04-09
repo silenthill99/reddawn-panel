@@ -11,6 +11,7 @@ declare module '@inertiajs/core' {
                 status?: string;
             },
             is_admin: boolean;
+            is_moderator: boolean;
         };
     }
 }

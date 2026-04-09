@@ -25,8 +25,8 @@ class StoreSanctionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "pseudo" =>['required','string',"max:255"],
-            "sanction_type" => ['required','string','max:255'],
+            'pseudo' => ['required', 'string', 'max:255'],
+            'sanction_type' => ['required', 'string', 'max:255'],
             'reason' => ['required', 'string'],
             'duration' => ['required', 'string', 'max:255'],
         ];

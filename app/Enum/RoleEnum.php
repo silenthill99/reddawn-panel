@@ -2,27 +2,28 @@
 
 namespace App\Enum;
 
-enum RoleEnum: int
+enum RoleEnum: string
 {
-    case AventurierDeM = 1;
-    case VIP = 2;
-    case Builder = 3;
-    case Developer = 4;
-    case Modo = 5;
-    case SuperModo = 6;
-    case Responsable = 7;
-    case Admin = 8;
-    public function label(): string
+    case Aventurier = 'Aventurier';
+    case VIP = 'V.I.P.';
+    case Builder = 'Constructeur';
+    case Developer = 'Développeur';
+    case Modo = 'Modérateur';
+    case SuperModo = 'Super Modérateur';
+    case Responsable = 'Responsable';
+    case Admin = 'Administrateur';
+
+    public function level(): int
     {
         return match ($this) {
-            self::AventurierDeM => 'Aventurier',
-            self::VIP => 'VIP',
-            self::Builder => 'Builder',
-            self::Developer => 'Développeur',
-            self::Modo => 'Modérateur',
-            self::SuperModo => 'Super Modérateur',
-            self::Responsable => 'Responsable',
-            self::Admin => 'Administrateur',
+            self::Aventurier => 1,
+            self::VIP => 2,
+            self::Builder => 3,
+            self::Developer => 4,
+            self::Modo => 5,
+            self::SuperModo => 6,
+            self::Responsable => 7,
+            self::Admin => 8,
         };
     }
 }

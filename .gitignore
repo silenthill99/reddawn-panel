@@ -31,3 +31,6 @@ yarn-error.log
 /storage/framework/
 
 .claude
+.ai
+.junie
+AGENTS.md

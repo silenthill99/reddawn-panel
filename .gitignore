@@ -34,3 +34,6 @@ yarn-error.log
 .ai
 .junie
 AGENTS.md
+.mcp.json
+boost.json
+CLAUDE.md
